@@ -1,6 +1,6 @@
 {
   "name": "vocab-docs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "returns markdown docs about vocab",
   "main": "index.js",
   "bin": "bin/vocab-docs",

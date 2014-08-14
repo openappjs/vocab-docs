@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "returns markdown docs about vocab",
   "main": "index.js",
+  "bin": "bin/vocab-docs",
   "scripts": {
     "test": "tape test"
   },

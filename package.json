@@ -1,0 +1,40 @@
+{
+  "name": "vocab-docs",
+  "version": "1.0.0",
+  "description": "returns markdown docs about vocab",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openappjs/vocab-docs.git"
+  },
+  "keywords": [
+    "openappjs",
+    "json-schema",
+    "schema",
+    "jsonld",
+    "linked",
+    "data",
+    "rdf",
+    "docs",
+    "documentation"
+  ],
+  "author": "ahdinosaur",
+  "license": "AGPLv3",
+  "bugs": {
+    "url": "https://github.com/openappjs/vocab-docs/issues"
+  },
+  "homepage": "https://github.com/openappjs/vocab-docs",
+  "devDependencies": {
+    "tape": "^2.14.0"
+  },
+  "dependencies": {
+    "range": "0.0.2",
+    "read-file-stdin": "0.0.4",
+    "swig": "^1.4.2",
+    "write-file-stdout": "0.0.2",
+    "yargs": "^1.3.1"
+  }
+}

@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var Path = require('path');
+var yargs = require('yargs');
+var readFileStdin = require('read-file-stdin');
+var writeFileStdout = require('write-file-stdout');
+
+var schemaLdDocs = require('../');
+
+var argv = yargs
+.usage('Usage: $0 -i [input file] -o [output file]')
+.string(['i', 'o'])
+.alias('i', 'input')
+.describe('i', 'input file containing schema')
+.alias('o', 'output')
+.describe('o', 'output file to write docs')
+.argv
+;
+
+var onInput = function (err, input) {
+  if (typeof input === 'string') {
+    input = JSON.parse(input);
+  }
+
+  var result = schemaLdDocs(input);
+
+  writeFileStdout(argv.o, result, function (err) {
+    if (err) { throw err; }
+
+    if (argv.i) {
+      console.log("wrote", argv.i, "schema as docs to", argv.o);
+    }
+  });
+};
+
+var extName = Path.extname(argv.i);
+if (extName === ".js" || extName === ".json") {
+  var path = Path.resolve(process.cwd(), argv.i)
+  process.nextTick(function () { onInput(null, require(path)) });
+} else {
+  readFileStdin(argv.i, onInput);
+}
